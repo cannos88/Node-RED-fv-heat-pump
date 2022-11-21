@@ -20,6 +20,6 @@ E' inoltre presente un input boolean che consente di disattivare o attivare l'in
 ![alt text](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/img/HA_Dashboard_component.PNG?raw=true)\
 La configurazione è presente nei file:\
 [input_boolean.yaml](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/input_boolean.yaml)\
-[input_number.yaml](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/input_number.yaml)\
+[input_number.yaml](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/input_number.yaml)
 
 Questi valori verranno salvati in quattro variabili di flusso cosi da poter essere richiamate in ogni punto (nodo giallo registra il dato).
