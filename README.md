@@ -1,5 +1,3 @@
-# Progetto WIP ma funzionante
-
 # Node-RED-fv-heat-pump
 
 Il seguente flusso NodeRed permette di massimizzare l'autoconsumo fotovoltaico per scaldare casa attraverso tramite la pompa dii calore.
@@ -100,3 +98,5 @@ L'ultimo step è il salvataggio della t impostata in una variabile di flusso per
 
 La temperatura di default può essere impostata anche se la T esterna supera la soglia di 19.5 gradi.
 Questo caso si utilizza sempre il flusso di reset T ambientale
+
+### il flusso potrà essere oggetto di ulteriori modifiche future per migliorare l'efficienza
