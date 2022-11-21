@@ -28,8 +28,8 @@ L'intero flusso è suddiviso in due sezione distinte:
 Incremento di T ambientale richiesta
 Reset T ambientale di Default
 
-Incremento T ambeintale:
-Attraverso il nodo trigger state viene letto il valore dell'energia immessa in rete espressa in W (il valore oscillerà tra 0 e 6000).
+Incremento T ambientale:
+Attraverso il nodo trigger state viene letto il valore della potenza immessa in rete espressa in W (il valore oscillerà tra 0 e 6000).
 Il valore verrà salvato in una variabile di flusso chiamata potenzaEsportata.
 Il nodo confronta dati si occuperà di confrontare il valore attuale del sensore con il valore di soglia impostato su HA e letto ad inizio flusso nella variabile sogliaImmissioni.
 ```js
@@ -66,3 +66,37 @@ Attraverso il nodo Change successivo si verifica che la temperatura da settare n
 Si invoca quindi il servizio setTemperature delle API della PDC (in questo caso tramite l'integrazione HACS https://github.com/chomupashchuk/ariston-remotethermo-home-assistant-v2).
 Dopo il set viene inviata la notifica Telegram con il set della nuova temperatura.
 L'ultimo step è il salvataggio della t impostata in una variabile di flusso per la successiva verifica.
+
+Reset T ambientale di Default:
+Attraverso il nodo trigger state viene letto il valore della potenza prelevata dalla rete espressa in W (il valore oscillerà tra 0 e 6600).
+Il valore verrà salvato in una variabile di flusso chiamata potenzaPrelevata.
+Il nodo confronta dati si occuperà di confrontare il valore attuale del sensore con il valore di soglia impostato su HA e letto ad inizio flusso nella variabile sogliaPrelievi.
+```js
+var sogliaP = flow.get("sogliaPrelievi");
+var potenzaImportata = flow.get("potenzaPrelevata");
+
+
+msg.topic = "incrementoTemp";
+
+if (potenzaImportata >= sogliaP){
+    msg.payload = "on";
+}else{
+    msg.payload = "STOP";
+}
+return msg;
+```
+se la potenza prelevata è maggiore della soglia verrà inviato il comando on al nodo Trigger, altrimenti verrà inviato STOP in modo da stoppare il timer.
+
+Al termine dell'attesa di 5 minuti viene verificata se l'automazione è attiva e se la PDC sia in modalità invernale.
+Se entrambe le condizioni sono verificate si recupera la T di default da impostare.
+```js
+var obtainedData = flow.get("tBasePDC");
+msg.payload = obtainedData;
+return msg;
+```
+Attraverso il nodo Change successivo si verifica che la temperatura da settare non sia stata già settata.
+Si invoca quindi il servizio di setTemperature delle API e si invia la notifica telegram.
+L'ultimo step è il salvataggio della t impostata in una variabile di flusso per la successiva verifica.
+
+La temperatura di default può essere impostata anche se la T esterna supera la soglia di 19.5 gradi.
+Questo caso si utilizza sempre il flusso di reset T ambientale
