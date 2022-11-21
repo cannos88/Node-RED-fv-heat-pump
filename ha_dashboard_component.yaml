@@ -1,0 +1,9 @@
+type: entities
+entities:
+  - entity: input_boolean.automazione_smart_grid_pdc
+  - entity: input_number.t_base_pdc
+  - entity: input_number.incremento_pdc
+  - entity: input_number.valore_immissione_pdc
+  - entity: input_number.valore_prelievo_pdc
+show_header_toggle: false
+title: Automazioni PDC
