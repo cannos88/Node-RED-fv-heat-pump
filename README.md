@@ -9,3 +9,4 @@ La lettura dei prelievi ed immissioni in rete è stata realizzzata attraverso la
 La pompa di calore utilizzata è una Ariston Nimbus 50M con integrazione Ariston Thermo via HACS.
 
 ## Flusso Node Red
+![alt text](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/img/flow.PNG?raw=true)
