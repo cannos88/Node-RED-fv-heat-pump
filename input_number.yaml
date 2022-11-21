@@ -1,0 +1,32 @@
+incremento_pdc:
+  name: incremento PDC
+  icon: mdi:home-thermometer
+  min: 1
+  max: 5
+  step: 0.5
+  unit_of_measurement: °C
+  mode: slider
+t_base_pdc:
+  name: Temperatura base PDC
+  icon: mdi:home-thermometer
+  min: 20
+  max: 25
+  step: 0.5
+  unit_of_measurement: °C
+  mode: slider
+valore_immissione_pdc:
+  name: Soglia immissione PDC
+  icon: mdi:solar-power-variant
+  min: 100
+  max: 1000
+  step: 50
+  unit_of_measurement: W
+  mode: slider
+valore_prelievo_pdc:
+  name: Soglia prelievo PDC
+  icon: mdi:solar-power-variant
+  min: 100
+  max: 1000
+  step: 50
+  unit_of_measurement: W
+  mode: slider
