@@ -14,7 +14,7 @@ La pompa di calore utilizzata è una Ariston Nimbus 50M con integrazione Ariston
 # Descrizione Flusso
 
 Sono stati realizzati quattro input boolean su HA che forniscono i parametri su cui si baserà il flusso e sono liberamente editabili da Dashboard.
-E' inoltre presente un input boolean che consente di disattivare o attivare l'intera automazione.
+E' inoltre presente un input boolean che consente di disattivare o attivare l'intera automazione.\
 ![alt text](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/img/HA_Dashboard_component.PNG?raw=true)\
 La configurazione è presente nei file:\
 [input_boolean.yaml](https://github.com/cannos88/Node-REd-fv-heat-pump/blob/master/input_boolean.yaml)\
